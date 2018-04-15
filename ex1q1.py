@@ -3,6 +3,7 @@ from numpy.linalg import svd, norm, matrix_rank
 import matplotlib.pyplot as plt
 import scipy.misc as misc
 import copy
+import utils
 
 
 def zero_k_sing_values(s, k):
@@ -39,29 +40,6 @@ def get_rec_forb_comp(img, u, s, vt, k):
     return rec_matrix, y1_forb_dist, y2_comp_ratio
 
 
-def plot_graph(x, title_x, y, title_y):
-    plt.title('Plotting {0} and {1}'.format(title_x, title_y))
-    plt.xlabel(title_x)
-    plt.ylabel(title_y)
-    plt.plot(x, y)
-    plt.show()
-    return
-
-
-def plot_images_from_list(image_list, k_list, forb_dist, comp_ratio):
-
-    fig, axeslist = plt.subplots(ncols=3, nrows=2)
-    fig.suptitle("5 Images Plot", fontsize=15)
-
-    for i in range(len(image_list)):
-        axeslist.ravel()[i].imshow(image_list[i], 'gray')
-        axeslist.ravel()[i].set_title(
-            "K: {0},\n Forb Dist: {1:.1f}, Comp Ratio: {2:.1f}".format(
-                k_list[i],forb_dist[i], comp_ratio[i]), fontsize=10)
-        axeslist.ravel()[i].set_axis_off()
-    plt.show()
-
-
 def main():
 
     # ---- Init data ----------
@@ -79,8 +57,8 @@ def main():
         y1_forb_dist.append(y1)
         y2_comp_ratio.append(y2)
 
-    plot_graph(k_x_axis, "k", y1_forb_dist, "Forb Dist")
-    plot_graph(k_x_axis, "k", y2_comp_ratio, "Compression Ratio")
+    utils.plot_graph(k_x_axis, "k", y1_forb_dist, "Forb Dist")
+    utils.plot_graph(k_x_axis, "k", y2_comp_ratio, "Compression Ratio")
     # -------------------------
 
     # # -------- 2nd Plot --------
@@ -94,7 +72,8 @@ def main():
         y1_forb_dist.append(y1)
         y2_comp_ratio.append(y2)
 
-    plot_images_from_list(image_list, k_image_list, y1_forb_dist,y2_comp_ratio)
+    utils.plot_images_from_list(image_list, k_image_list, y1_forb_dist,
+                                y2_comp_ratio)
     # -------------------------
 
 if __name__ == '__main__': main()
