@@ -48,8 +48,8 @@ def main():
     data_set = load_data("kc_house_data.csv")
     data_set = pre_process_data(data_set)
 
-    #todo check how date is removed??
-    #todo improve score
+    # todo check how date is removed??
+    # todo improve score
     x_arr = []
     train_error = []
     test_error = []
@@ -72,4 +72,5 @@ def main():
     utils.plot_graph(x_arr, "X", train_error, "mse_train", test_error, "mse_test")
 
 
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

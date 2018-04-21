@@ -1,6 +1,5 @@
 from numpy import diag, dot
 from numpy.linalg import svd, norm, matrix_rank
-import matplotlib.pyplot as plt
 import scipy.misc as misc
 import copy
 import utils
@@ -60,7 +59,7 @@ def main():
     utils.plot_graph(k_x_axis, "k", y2_comp_ratio, "Compression Ratio")
     # -------------------------
 
-    # # -------- 2nd Plot --------
+    # -------- 2nd Plot --------
     k_image_list = [5, 20, 45, 250, 511]
     image_list = []
     y1_forb_dist = []
