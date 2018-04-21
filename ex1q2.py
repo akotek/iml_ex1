@@ -40,7 +40,7 @@ def pre_process_data(data_set):
     return data_set
 
 
-def get_rmse(y_train, y_predicted):
+def get_mse(y_train, y_predicted):
     return ((y_train - y_predicted) ** 2).mean()
 
 
@@ -66,8 +66,8 @@ def main():
         y_hat_train = train.dot(w_train)
         w_test = np.dot(get_psuedo_inverse(test), y_test)
         y_hat_test = test.dot(w_test)
-        train_error.append(get_rmse(y_train, y_hat_train))
-        test_error.append(get_rmse(y_test, y_hat_test))
+        train_error.append(get_mse(y_train, y_hat_train))
+        test_error.append(get_mse(y_test, y_hat_test))
 
     utils.plot_graph(x_arr, "X", train_error, "mse_train", test_error, "mse_test")
 
