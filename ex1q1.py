@@ -41,7 +41,6 @@ def get_rec_forb_comp(img, u, s, vt, k):
 
 
 def main():
-
     # ---- Init data ----------
     img = misc.ascent()
     U, S, VT = svd(img, full_matrices=False)
@@ -67,7 +66,7 @@ def main():
     y1_forb_dist = []
     y2_comp_ratio = []
     for k in k_image_list:
-        rec_img, y1, y2 = get_rec_forb_comp(img, U, copy.deepcopy(S),VT, k)
+        rec_img, y1, y2 = get_rec_forb_comp(img, U, copy.deepcopy(S), VT, k)
         image_list.append(rec_img)
         y1_forb_dist.append(y1)
         y2_comp_ratio.append(y2)
@@ -76,5 +75,5 @@ def main():
                                 y2_comp_ratio)
     # -------------------------
 
-if __name__ == '__main__': main()
 
+if __name__ == '__main__': main()
