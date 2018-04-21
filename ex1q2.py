@@ -40,14 +40,16 @@ def pre_process_data(data_set):
     return data_set
 
 
-def get_rmse(predictions, targets):
-    return np.sqrt(((predictions - targets) ** 2).mean())
+def get_rmse(y_train, y_predicted):
+    return ((y_train - y_predicted) ** 2).mean()
 
 
 def main():
     data_set = load_data("kc_house_data.csv")
     data_set = pre_process_data(data_set)
 
+    #todo check how date is removed??
+    #todo improve score
     x_arr = []
     train_error = []
     test_error = []
