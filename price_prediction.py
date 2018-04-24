@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import utils
-import matplotlib.pyplot as plt
+
 
 def load_data(input):
     return pd.read_csv(input)
@@ -73,6 +73,7 @@ def main():
         y_test = get_col(test, 'price')
         test = remove_cols(test, ['price'])
         y_hat_test = test.dot(w_train)
+
         train_error.append(get_rmse(y_train, y_hat_train))
         test_error.append(get_rmse(y_test, y_hat_test))
 
