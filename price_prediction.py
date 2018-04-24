@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import utils
-
+import matplotlib.pyplot as plt
 
 def load_data(input):
     return pd.read_csv(input)
@@ -59,11 +59,9 @@ def main():
     df = load_data("kc_house_data.csv")
     df = pre_process_data(df)
 
-    x_arr = []
     train_error = []
     test_error = []
     for x in range(1, 100):
-        x_arr.append(x)
         rows = np.random.rand(len(df)) < x / 100
         train = df[rows]
         test = df[~rows]
@@ -78,9 +76,8 @@ def main():
         train_error.append(get_rmse(y_train, y_hat_train))
         test_error.append(get_rmse(y_test, y_hat_test))
 
-    utils.plot_graph(x_arr, "X", train_error, "mse_train", test_error,
+    utils.plot_graph("X", train_error, "mse_train", test_error,
                      "mse_test")
-
 
 if __name__ == '__main__':
     main()
