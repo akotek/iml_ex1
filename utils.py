@@ -24,6 +24,18 @@ def plot_one_func(x, title_x, y1, title_y1):
     return
 
 
+def plot_five_func(x_axis_list, y_func_list, x_label, y_label):
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    title_list = []
+    for i in range(len(y_func_list)):
+        plt.plot(x_axis_list, y_func_list[i])
+        title_list.append("line " + str(i))
+    plt.legend(title_list, loc='upper right')
+    plt.show()
+    return
+
+
 def plot_images_from_list(image_list, k_list, forb_dist, comp_ratio):
 
     fig, axeslist = plt.subplots(ncols=3, nrows=2)

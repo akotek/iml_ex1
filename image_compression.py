@@ -21,7 +21,7 @@ def reconstruct_rank_k_mat(u, s, vt, k):
 def calc_compression_ratio(square_mat, k):
     r = matrix_rank(square_mat)  # r=rank
     n = len(square_mat)
-    return 1 - ((2 * k * n) + k) / ((2 * n * r) + n)
+    return ((2 * k * n) + k) / ((2 * n * r) + n)
 
 
 def forbenius_dist(mat1, mat2):
