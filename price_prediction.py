@@ -77,7 +77,8 @@ def main():
         train_error.append(get_rmse(y_train, y_hat_train))
         test_error.append(get_rmse(y_test, y_hat_test))
 
-    utils.plot_graph("X", train_error, "mse_train", test_error,
+    utils.plot_graph(list(range(1, 100)),"X", train_error, "mse_train", \
+                                      test_error,
                      "mse_test")
 
 if __name__ == '__main__':
